@@ -1,8 +1,8 @@
 set ns [new Simulator]
-set tr [open l1.tr w]
-$ns trace-all $tr
-set nam [open l1.nam w]
-$ns namtrace-all $nam	
+set tf [open l1.tr w]
+$ns trace-all $tf
+set nf [open l1.nam w]
+$ns namtrace-all $nf	
 
 set n0 [$ns node]
 set n1 [$ns node]
@@ -43,10 +43,10 @@ $ns at 2.2 "$ftp stop"
 $ns at 2.2 "$cbr0 stop"
 
 proc finish { } {
-global ns tr nam
+global ns tf nf
 $ns flush-trace
-close $tr
-close $nam
+close $tf
+close $nf
 exec nam l1.nam &
 
 exit 0
